@@ -1,12 +1,14 @@
 %problema do jogador inexperiente jogando dardos.(Caderno)
 
-Nexp = 1000000;
+Nexp = 100000;
 
 X = rand(1,Nexp); %sorteia uma matriz com 1 linha e Nexp colunas entre 0 e 1
 Y = rand(1,Nexp);
 
 figure(1)
-scatter(X,Y); %plot os valores como pontos no grafico
+scatter(X(1:1000),Y(1:1000)); %plot os valores como pontos no grafico 
+                              %(1:1000) pega os primeiros 1000 valores do vetor
+                              
 
 D = sqrt((X-0.5).^2 + (Y-0.5).^2); %0.5 pq o grafico esta de 0-1 no x e 0-1 no y entao no centro e (0.5,0.5)
 SD = -0.1:0.01:0.8; %config o espaço amostral da variavel (-0.1 para poder os valores anteriores a 0)
