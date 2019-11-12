@@ -50,12 +50,12 @@ var_prat
 #---PMF_teorica---
 pn = zeros(1,k+1);
 n = k;
-for i = 1 : (max(y)+1) %(k+max(y)); #qual valor colocar
+for i = 1 : (max(y)+1) 
   pn(i) = pmf_n(k,n,p);
   n = n+1;  
 end
 Sn = k:maior;
-bar(Sn,pn,'g'); # qual valor de Sn colocar
+bar(Sn,pn,'g'); 
 
 
 #---Media_teorica---
