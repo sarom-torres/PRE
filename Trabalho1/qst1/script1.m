@@ -1,8 +1,10 @@
-n = 6; #numero de lancamentos
+clc
+clear all
+close all
 
-p = 0.5; #probabilidade de sucesso
-
-Nexp = 100000; #numero de experimento
+n = 10; #numero de lancamentos
+p = 0.1; #probabilidade de sucesso
+Nexp = 100; #numero de experimento
 
 #-----Simulado------------------------------------------------------------------
 
@@ -15,18 +17,26 @@ end
 Sk = 0: n;
 
 hist_y = hist(y,Sk);
-hist_prat = hist_y/Nexp; #conferir o numero de experimentos
-stem(Sk,hist_prat);
+pmf_prat = hist_y/Nexp; #conferir o numero de experimentos
+stem(Sk,pmf_prat);
 hold on
 
 #---Media_pratica---
 x = 0;
 for j = 1: (n+1)
-  med(j) = x*hist_prat(j);
+  med(j) = x*pmf_prat(j);
   x = x+1;
 end
 av_prat = sum(med)
 
+#---Variancia_pratica---
+
+z = 0;
+for j = 1: (n+1)
+  ez2(j) = (z**2)*pmf_prat(j); 
+  z = z+1;
+end
+var_prat = sum(ez2)-(av_prat**2) 
 
 
 #-----Teorico-------------------------------------------------------------------
@@ -45,6 +55,8 @@ pk;
 bar(Sk,pk,'y');
 
 #---Media_teorica---
-av_teor = media(n,p) 
+av_teor = media(n,p); 
 
+#---Variancia_teorica---
+var_teor = var(n,p)
 
