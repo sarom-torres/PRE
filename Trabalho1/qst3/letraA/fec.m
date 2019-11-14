@@ -33,7 +33,6 @@ Sk = 0: n;
 
 hist_y = hist(y,Sk);
 pmf_prat = hist_y/Nexp;
-pmf_prat
 prob_prat = sum(pmf_prat(16:end))
 bar(Sk,pmf_prat);
 

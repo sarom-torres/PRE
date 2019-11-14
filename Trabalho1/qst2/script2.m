@@ -2,9 +2,9 @@ clc
 clear all
 close all
 
-k = 5;
-p = 2/5;
-Nexp = 10000;
+k = 2;
+p = 1/2;
+Nexp = 100000;
 
 #----------Simulado---------------------------------------------------------------------
 
@@ -30,8 +30,7 @@ for i = 1 : max(y)
   med(i) = x*pmf_prat(i);
   x = x+1;
 end
-media_sim = sum(med);
-media_sim
+media_sim = sum(med)
 
 #---Variância_simulada---
 z = k;
@@ -41,8 +40,7 @@ for i = 1 : max(y)
 end
 ez2 = sum(ez);
 
-var_prat = ez2 - (media_sim**2);
-var_prat
+var_sim = ez2 - (media_sim**2)
 
 
 #----------Teorico-------------------------------------------------------------------------
@@ -60,10 +58,8 @@ bar(Sn,pn,'g');
 
 #---Media_teorica---
 
-media_teor = media(k,p);
-media_teor
+media_teor = media(k,p)
 
 #---Variancia_teorica---
 
-var_teor = variancia(k,p);
-var_teor
+var_teor = variancia(k,p)
